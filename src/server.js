@@ -1,22 +1,21 @@
 
-const express = require('express')
-const app = express()
+const express = require("express");
+const app = express();
+
 
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const apiV2 = require("./v2/index")
-
-app.use('/v2', apiV2)
+const apiV2 = require("./v2/index.js");
+app.use("/v2", apiV2);
 
 app.use((error, request, response, next) => {
-    response.json({
-        message: "Error occured!",
-        error: error
-    })
-})
+    console.log(error.message)
+	response.json({
+		message:"Error occured!",
+		error: error.message
+	});
+});
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+module.exports = {app, PORT}
