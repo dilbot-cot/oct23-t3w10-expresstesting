@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Oct23-T3W10-Sat",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

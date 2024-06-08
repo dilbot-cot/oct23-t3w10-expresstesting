@@ -28,5 +28,10 @@ describe('v2/ functionality', () => {
     */
 
       expect(response.body.data.movie).toBe("Dune");
+      expect(response.body.data.movie).toBeTruthy();
+  });
+  it('should v2/headercheck/ GET recieved an auth headrer correctly', async () => {
+    const response = await request(app).get("/v2/headercheck/").auth('Test1234', {type: "bearer"});
+    expect(response.body.data).toBe("Bearer Test1234");
   });
 })
