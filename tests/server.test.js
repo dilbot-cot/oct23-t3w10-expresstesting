@@ -6,7 +6,7 @@ describe('Home page route shows an error', () => {
   it('should return an object with a message and error property', async () => {
     // localhost:3000/v2/
     const response = await request(app).get("/v2/");
-    console.log(response);
+    console.log(response.body);
     expect(response.body.message).toBeTruthy();
   });
 })
