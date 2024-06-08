@@ -6,14 +6,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/", (request, response, next) => {
+const apiV2 = require("./v2/index")
 
-    return next(new Error("Error on purpose from root route"))
-
-    response.json({
-        message:"Hello World!"
-    })
-});
+app.use('/v2', apiV2)
 
 app.use((error, request, response, next) => {
     response.json({
